@@ -1,0 +1,129 @@
+@import 'partials/_variables';
+
+/*** header ***/
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 3em;
+  height: 45px;
+  a {
+    color: $main-color;
+    text-decoration: none;
+  }
+  img {
+    width: 60px;
+    padding-top: 28px;
+  }
+}
+
+#logo {
+  color: $main-color;
+  font-family: 'Medula One', cursive;
+  font-size: 1.5rem;
+}
+
+.logout {
+  padding-top: 25px;
+  padding-right: 10px;
+}
+
+@media (min-width: 535px) {
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 3em;
+  a {
+    color: $main-color;
+    text-decoration: none;
+  }
+  img {
+    width: 60px;
+    padding-top: 28px;
+  }
+  #logo-image {
+    padding-right: 75px;
+    padding-left: 75px;
+  }
+}
+
+#logo {
+  color: $main-color;
+  font-family: 'Medula One', cursive;
+  font-size: 1.5rem;
+}
+
+.logout {
+  padding-top: 25px;
+  padding-right: 10px;
+}
+}
+
+@media (min-width: 648px) {
+  nav img {
+    margin-right: 110px;
+  }
+}
+
+
+@media (min-width: 900px) {
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 3em;
+  a {
+    color: $main-color;
+    text-decoration: none;
+  }
+  img {
+    width: 60px;
+    padding-top: 28px;
+  }
+  #logo-image {
+    padding-right: 75px;
+  }
+}
+
+#logo {
+  color: $main-color;
+  font-family: 'Medula One', cursive;
+  font-size: 1.5rem;
+}
+
+.logout {
+  padding-top: 25px;
+  padding-right: 10px;
+}
+}
+
+
+@media (min-width: 1400px) {
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 3em;
+  a {
+    color: $main-color;
+    text-decoration: none;
+  }
+  img {
+    width: 60px;
+    padding-top: 28px;
+  }
+  #logo-image {
+    padding-right: 75px;
+  }
+}
+
+#logo {
+  color: $main-color;
+  font-family: 'Medula One', cursive;
+  font-size: 1.5rem;
+}
+
+.logout {
+  padding-top: 25px;
+  padding-right: 10px;
+}
+}

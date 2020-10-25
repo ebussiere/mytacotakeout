@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Order Confirmation</title>
+    <%- include('partials/_head') %>
+    <script type="module" src="/scripts/getOrderStatus.js"></script>
+  </head>
+
+  <body>
+    <%- include('partials/_header') %>
+    <div class="page-container">
+      <div id="order-page" class="content-wrap">
+        <i class="far fa-paper-plane fa-7x"></i>
+        <h1>Thank you, <%= first_name %>! Your order #<%= order_id %> is sent. <br>Waiting on the restaurant for confirmation… </h1>
+      </div>
+      <div class="admin-footer">
+        <%- include('partials/_footer') %>
+      </div>
+    </div>
+  </body>
+</html>

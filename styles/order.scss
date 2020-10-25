@@ -1,0 +1,33 @@
+
+#order-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 7em;
+  color: $main-color;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  img {
+    height: 100px;
+    width: 133px;
+  }
+  h1 {
+    text-align: center;
+    color: black;
+  }
+}
+
+@media (min-width: 1400px) {
+#order-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 7em;
+  color: $main-color;
+  h1 {
+    text-align: center;
+    color: black;
+  }
+
+}
+}

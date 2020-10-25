@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Pending Orders</title>
+  <%- include('partials/_head') %>
+  <script type="module" src="/scripts/admin.js"></script>
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+  <div class="page-container">
+    <div class="content-wrap" id="admin-center">
+      <div id="cart-admin">
+        <%for(const order in orders) {%>
+        <div class="cart" id="single-cart-admin">
+          <div class="top-cart">
+            <h3 class="cart-head">Order # <%=order%></h3>
+            <% for(const entry of orders[order].items) { %>
+              <div class="cart-item">
+                <div class="item-price">
+                  <h3><%=entry.quantity%>x</h3>
+                  <h3><%=entry.name%></h3>
+                  <h3><%=entry.price%></h3>
+                </div>
+              </div>
+              <%}%>
+            <div class="cart-total">
+              <h3>Total</h3>
+              <h3><%=orders[order].total%></h3>
+            </div>
+          </div>
+          <div class="submit-time">
+            <p>Estimated Prep Time</p>
+          <form action="/admin" method="POST">
+            <input type="number" class="wait-time" name="waitTime">
+            </div>
+            <div class="admin-submit">
+            <input type="submit" value="Confirm Order" class="sms"> <!--change back to class sms -->
+            <input type="hidden" name="order_id" value="<%=order%>">
+            </form>
+          </div>
+          </div>
+          <%}%>
+        </div>
+      </div>
+      <div class="admin-footer">
+        <%- include('partials/_footer') %>
+      </div>
+        </div>
+
+</body>
+
+</html>

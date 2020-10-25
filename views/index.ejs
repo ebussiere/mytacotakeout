@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+  <%- include('partials/_head') %>
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+  <div class="page-container">
+    <main class="content-wrap">
+      <div id="all-menu-items">
+        <% if(menu_items) { %>
+        <h1 id="appetizers-title"> Appetizers </h1>
+        <% for(const menu_item in menu_items) { %>
+        <% if(menu_items[menu_item]["menu_category_id"]===1) { %>
+        <article>
+          <div class="menu-dish">
+            <header>
+              <h3><%= menu_items[menu_item]["name"] %><p class="price"><%= menu_items[menu_item]["price"] %></p>
+              </h3>
+              <p class="item-description"><%= menu_items[menu_item]["description"] %></p>
+              <div class="dish-btn">
+                <form class="form-inline" method="POST" action="/orderitems/add/<%= menu_items[menu_item]['id'] %>">
+                  <button type="submit" class="add-item-btn">Add Item</button>
+                </form>
+              </div>
+            </header>
+          </div>
+          <img src="<%= menu_items[menu_item].image_url %>" alt="">
+        </article>
+        <% }%>
+        <% }%>
+
+        <h1 id="bevs-title"> Beverages </h1>
+        <% for(const menu_item in menu_items) { %>
+        <% if(menu_items[menu_item]["menu_category_id"]===2) { %>
+        <article>
+          <div class="menu-dish">
+            <header>
+              <h3><%= menu_items[menu_item]["name"] %><p class="price"><%= menu_items[menu_item]["price"] %></p>
+              </h3>
+              <p class="item-description"><%= menu_items[menu_item]["description"] %></p>
+              <div class="dish-btn">
+                <form class="form-inline" method="POST" action="/orderitems/add/<%= menu_items[menu_item]['id'] %>"> <button type="submit" class="add-item-btn">Add Item</button>
+                </form>
+              </div>
+            </header>
+          </div>
+          <img src="<%= menu_items[menu_item].image_url %>" alt="">
+        </article>
+        <% }%>
+        <% }%>
+        <h1 id="entres-title"> Entres </h1>
+        <% for(const menu_item in menu_items) { %>
+        <% if(menu_items[menu_item]["menu_category_id"]===3) { %>
+        <article>
+          <div class="menu-dish">
+            <header>
+              <h3><%= menu_items[menu_item]["name"] %><p class="price"><%= menu_items[menu_item]["price"] %></p>
+              </h3>
+              <p class="item-description"><%= menu_items[menu_item]["description"] %></p>
+              <div class="dish-btn">
+                <form class="form-inline" method="POST" action="/orderitems/add/<%= menu_items[menu_item]['id'] %>"> <button type="submit" class="add-item-btn">Add Item</button>
+                </form>
+              </div>
+            </header>
+          </div>
+          <img src="<%= menu_items[menu_item].image_url %>" alt="">
+        </article>
+        <% }%>
+        <% }%>
+
+        <h1 id="dessert-title"> Desserts </h1>
+        <% for(const menu_item in menu_items) { %>
+        <% if(menu_items[menu_item]["menu_category_id"]===4) { %>
+        <article>
+          <div class="menu-dish">
+            <header>
+              <h3><%= menu_items[menu_item]["name"] %><p class="price"><%= menu_items[menu_item]["price"] %></p>
+              </h3>
+              <p class="item-description"><%= menu_items[menu_item]["description"] %></p>
+              <div class="dish-btn">
+                <form class="form-inline" method="POST" action="/orderitems/add/<%= menu_items[menu_item]['id'] %>">
+                  <button type="submit" class="add-item-btn">Add Item</button>
+                </form>
+              </div>
+            </header>
+          </div>
+          <img src="<%= menu_items[menu_item].image_url %>" alt="">
+        </article>
+        <% }%>
+        <% }%>
+        <% }%>
+      </div>
+      <% if(cartHasItems==0) {%>
+      <%- include('partials/_emptycart') %>
+      <% } %>
+      <% if(cartHasItems==1) {%>
+      <div class="cart-container">
+        <div class="position-fix cart">
+          <div class="top-cart">
+            <h3 class="cart-head">Your Order</h3>
+            <% for(const currentCartItem in currentCartItems) { %>
+            <div class="cart-admin">
+              <div class="item-price">
+                <h3>x <%=currentCartItems[currentCartItem]["count"]%></h3>
+                <h3 id="align-item-name"><%=currentCartItems[currentCartItem]["name"]%></h3>
+                <h3><%=currentCartItems[currentCartItem]["total"]%></h3>
+              </div>
+              <form class="form-inline" method="POST" action="/orderitems/remove/<%= currentCartItems[currentCartItem]['menu_item_id'] %>">
+                <button class='remove-btn'>Remove</button>
+              </form>
+            </div>
+            <% }%>
+          </div>
+          <a href="/checkout" class="checkout-btn"><span class="order-btn">Checkout</span><span class="total-price"><%=cartTotal%></span></a>
+        </div>
+      </div>
+
+      <div class="hide-empty">
+        <%- include('partials/_emptycart') %>
+      </div>
+      <% }%>
+    </main>
+    <%- include('partials/_footer') %>
+  </div>
+</body>
+
+</html>
